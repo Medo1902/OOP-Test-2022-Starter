@@ -61,5 +61,40 @@ public class Nematode {
         this.eyes = eyes;
     }
 
+    public void render(NematodeVisualiser pa){
+
+        float x = pa.height / 2;
+        float y = pa.width - 200;
+
+        //Print the name of the nematode
+        pa.text(name, x - 50 , y - 500);
+
+        for(int i = 0; i < length ; i++)
+        {
+            pa.stroke(255);
+            pa.noFill();
+            pa.circle(x,y,50);
+
+            
+                if(gender == "f")
+                {
+                    pa.stroke(255);
+                    pa.noFill();
+                    pa.circle(x,y, 30);
+                }
+            
+            if (isLimbs())
+            {
+                pa.line(x - 25, y, x - 50, y);
+                pa.line(x + 25, y, x + 50, y);
+            }
+
+            if(isEyes())
+            {
+    
+            }
+            y = y - 50;
+        }
+    }
     
 }

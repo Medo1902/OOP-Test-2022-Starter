@@ -11,12 +11,14 @@ public class NematodeVisualiser extends PApplet
 
 	ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
 
-	public float border;
+	public int j;
 
 	public void keyPressed()
 	{		
-		if (keyCode == LEFT)
+		if (keyCode == RIGHT)
 		{
+			j++;
+			nematodes.get(j);
 		}		
 	}
 
@@ -30,7 +32,8 @@ public class NematodeVisualiser extends PApplet
 	{
 		colorMode(HSB);
 		background(0);
-		smooth();				
+		smooth();	
+		loadNematodes();			
 	}
 	
 
@@ -44,7 +47,18 @@ public class NematodeVisualiser extends PApplet
 		}
 	}
 
+	public void drawNematodes()
+    {
+        for(Nematode n:nematodes)
+        {
+            n.render(this);
+        }
+
+    }
+
+
 	public void draw()
 	{	
+		drawNematodes();
 	}
 }
